@@ -12,6 +12,7 @@ import Posts from './pages/Posts';
 Vue.use(VueRouter)
 
 const router = new VueRouter({
+    mode: 'history',
     routes: [
         {
             path: '/',
