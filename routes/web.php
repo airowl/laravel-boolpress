@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/guests', 'guest\GuestController@index')->name('guests.index');
+Route::get('/', 'guest\GuestController@index')->name('guests.index');
 
 Route::middleware('auth')
 ->namespace('admin')
