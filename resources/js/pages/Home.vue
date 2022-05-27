@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        Ciao guest questa è la home
     </div>
 </template>
 
