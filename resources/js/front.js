@@ -24,7 +24,8 @@ const router = new VueRouter({
             name: 'posts',
             component: Posts
         },
-    ]
+    ],
+    linkExactActiveClass: 'active'
 });
 
 const app = new Vue({

@@ -1927,8 +1927,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Header'
+  name: 'Header',
+  data: function data() {
+    return {
+      navLinks: [{
+        label: 'Home',
+        routeName: 'home'
+      }, {
+        label: 'Posts',
+        routeName: 'posts'
+      }]
+    };
+  }
 });
 
 /***/ }),
@@ -3212,53 +3224,47 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("header", [
-    _c(
-      "nav",
-      { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
-      [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-            _vm._v("MANGA"),
-          ]),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "collapse navbar-collapse",
-              attrs: { id: "navbarNavAltMarkup" },
-            },
-            [
-              _c(
-                "div",
-                { staticClass: "navbar-nav" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link active",
-                      attrs: { "aria-current": "page", to: { name: "home" } },
-                    },
-                    [_vm._v("Home")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { to: { name: "posts" } },
-                    },
-                    [_vm._v("Posts")]
-                  ),
-                ],
-                1
-              ),
-            ]
-          ),
+    _c("nav", { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+          _vm._v("MANGA"),
         ]),
-      ]
-    ),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse navbar-collapse",
+            attrs: { id: "navbarNavAltMarkup" },
+          },
+          [
+            _c(
+              "ul",
+              { staticClass: "navbar-nav" },
+              _vm._l(_vm.navLinks, function (link, index) {
+                return _c(
+                  "li",
+                  { key: index },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: link.routeName } },
+                      },
+                      [_vm._v(_vm._s(link.label))]
+                    ),
+                  ],
+                  1
+                )
+              }),
+              0
+            ),
+          ]
+        ),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -19043,7 +19049,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     path: '/posts',
     name: 'posts',
     component: _pages_Posts__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }]
+  }],
+  linkExactActiveClass: 'active'
 });
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#root',
