@@ -8,8 +8,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">Posts</a>
+                    <router-link class="nav-link active" aria-current="page" :to="{ name: 'home' }">Home</router-link>
+                    <router-link class="nav-link" :to="{ name: 'posts' }">Posts</router-link>
                 </div>
                 </div>
             </div>
