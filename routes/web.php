@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-
 Route::middleware('auth')
 ->namespace('admin')
 ->name('admin.')
@@ -28,6 +27,10 @@ Route::middleware('auth')
     Route::get('/', 'AdminController@index')->name('home');
     Route::resource('posts', PostsController::class);
 });
+
+Route::get('/contact', 'guest\ContactController@contact')->name('guest.contact');
+Route::post('/contact', 'guest\ContactController@contactMailSender')->name('guest.send');
+Route::get('/thanks', 'guest\ContactController@thanks')->name('guest.thanks');
 
 Route::get('{any?}', function () {
     return view('guests.index');
