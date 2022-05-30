@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'guest\GuestController@index')->name('guests.index');
 
 Route::middleware('auth')
 ->namespace('admin')

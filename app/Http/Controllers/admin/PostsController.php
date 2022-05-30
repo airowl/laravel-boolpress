@@ -8,6 +8,7 @@ use App\Post;
 use App\User;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -48,7 +49,7 @@ class PostsController extends Controller
         $post = new Post;
         $post->user_id = Auth::user()->id;
         $post->title = $data['title'];
-        $post->image = $data['image'];
+        $post->image = Storage::put('uploads', $data['image']);
         $post->description = $data['description'];
         $post->save();
 

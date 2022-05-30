@@ -12,7 +12,7 @@
         </div>
         <div class="col-12 text-center mt-5">
 
-            <img class="my-img" src="{{ $post['image'] }}" alt="{{ $post['title'] }}">
+            <img class="my-img" src="{{ asset('storage/' . $post['image']) }}" alt="{{ $post['title'] }}">
             <h1>{{ $post['title'] }}</h1>
             <p>{{ $post['description'] }}</p>
 
