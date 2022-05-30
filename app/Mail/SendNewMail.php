@@ -22,9 +22,9 @@ class SendNewMail extends Mailable
      */
     public function __construct($guestName, $guestEmail, $guestMessage)
     {
-        $this->$guestName = $guestName;
-        $this->$guestEmail = $guestEmail;
-        $this->$guestMessage = $guestMessage;
+        $this->guestName = $guestName;
+        $this->guestEmail = $guestEmail;
+        $this->guestMessage = $guestMessage;
     }
 
     /**
@@ -35,6 +35,7 @@ class SendNewMail extends Mailable
     public function build()
     {
         //return $this->from($this->guestEmail)->subject('titolo della mail')
-        return $this->from('prova@gmail.com')->markdown('email.body', ['name' => $this->guestName, 'email' => $this->guestEmail, 'message' => $this->guestMessage]);
+        return $this->from($this->guestEmail)->markdown('email.body', ["name" => $this->guestName, "email" => $this->guestEmail, "message" => $this->guestMessage]);
+        //return $this->replyTo($this->guestEmail)->view('email.body', ["name" => $this->guestName, "email" => $this->guestEmail, "message" => $this->guestMessage]);
     }
 }
